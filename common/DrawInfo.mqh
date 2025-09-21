@@ -259,9 +259,13 @@ void drawPoints(string name, int& arr[], int mode, color color_arr, int modeType
 //+------------------------------------------------------------------+
 //|                                                                  |
 //+------------------------------------------------------------------+
-void drawRectangle(string name, double fromX, double toX, double fromY, double toY)
+void drawRectangle(string name, double fromX, double toX, double fromY, double toY, uint col = -1)
   {
-   uint col = ColorToARGB(clrYellow, 240);
+
+
+   if(col == -1){
+      col = ColorToARGB(clrYellow, 240);
+   }
    
 //ObjectCreate(0,"RECTANGLE_LABEL",OBJ_RECTANGLE_LABEL,0,0,0);
    ObjectCreate(0,name,OBJ_RECTANGLE,0, fromX, fromY, toX, toY);
@@ -292,10 +296,10 @@ void drawLabel(string name, int x, int y, string label, color clr = clrRed)
 
 
 
-void drawZone(string name, Zone& zone){
+void drawZone(string name, Zone& zone,  uint col =  -1){
     if(!isDraw) return;
     string nameId = findNameId(name);
-    double fromX = time(1000);
+    double fromX = time(1500);
     double toX = time(0);
     double minPrice = zone.min_price;
    
@@ -304,5 +308,5 @@ void drawZone(string name, Zone& zone){
     
     double maxPrice = MathMax(zone.max_price, zone.min_price + tick_size*20);
      
-    drawRectangle(nameId, fromX, toX, minPrice, maxPrice );
+    drawRectangle(nameId, fromX, toX, minPrice, maxPrice, col);
 }
