@@ -32,8 +32,8 @@ class ZoneManager
       int all_highs_closes[];
    
      
-      int count = 10;
-      int distance = 20;
+      int count = 20;
+      int distance = 40;
       getLows(all_lows,count,distance,-1,0,false);
 
       getLows(all_lows_close,count,distance,-1,0,false,MODE_CLOSE);
