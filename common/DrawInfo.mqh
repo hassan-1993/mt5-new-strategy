@@ -246,9 +246,9 @@ void drawPoints(string name, int& arr[], int mode, color color_arr, int modeType
        
        
       if(point.mode == MODE_LOW){
-          arrowUp(name + " low:" + " " + point.candleIndex, time(point.candleIndex), price, color_arr);
+          arrowUp(name + " low:" + " " + point.candleIndex(), time(point.candleIndex()), price, color_arr);
       }else if(point.mode == MODE_HIGH){
-          arrowDown(name + " high:" + " " + point.candleIndex, time(point.candleIndex), price, color_arr);
+          arrowDown(name + " high:" + " " + point.candleIndex(), time(point.candleIndex()), price, color_arr);
       }
       
      }
@@ -299,7 +299,7 @@ void drawLabel(string name, int x, int y, string label, color clr = clrRed)
 void drawZone(string name, Zone& zone,  uint col =  -1){
     if(!isDraw) return;
     string nameId = findNameId(name);
-    double fromX = time(1500);
+    double fromX = time(3000);
     double toX = time(0);
     double minPrice = zone.min_price;
    
